@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Successful</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .content {
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            text-align: center;
+            margin: 100px auto 30px auto; /* Adjusted margin to reduce space at the bottom */
+            max-width: 600px; /* Increased container width for a larger form */
+        }
+
+        h2 {
+            color: #007bff; /* Primary blue color for headings */
+            margin-bottom: 20px; /* Increased margin-bottom for spacing */
+        }
+
+        p {
+            margin-bottom: 30px; /* Increased margin-bottom for spacing */
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Primary blue background color for buttons */
+            border-color: #007bff; /* Primary blue border color for buttons */
+            width: 200px; /* Increased button width */
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+                border-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h2>Booking Successful!</h2>
+        <p>Your booking has been successfully submitted.</p>
+        <a href="@Url.Action("DashboardForm", "SignIn")" class="btn btn-primary btn-lg">Go to Dashboard</a> <!-- Added btn-lg class for larger button -->
+    </div>
+
+</body>
+</html>

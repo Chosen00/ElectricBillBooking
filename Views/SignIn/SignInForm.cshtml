@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Sign In";
+}
+
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    <form action="/SignIn/SignInForm" method="post" class="mt-4">
+        <div class="container">
+            <div class="text-center mt-4">
+                <h2>Sign In</h2>
+            </div>
+            <br />
+            @if (TempData.ContainsKey("ErrorMessage"))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @TempData["ErrorMessage"]
+                </div>
+            }
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="Enter your username" required style="width: 300px;">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Enter your password" required style="width: 300px;">
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+    </form>
+</div>
+

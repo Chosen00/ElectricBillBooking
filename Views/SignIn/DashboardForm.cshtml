@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+
+        .content {
+            padding: 90px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+            text-align: center;
+            margin: 30px auto 30px auto; /* Adjusted margin to reduce space at the bottom */
+            max-width: 700px; /* Increased container width for a larger form */
+        }
+
+        h1 {
+            color: #007bff; /* Primary blue color for headings */
+            margin-bottom: 10px; /* Increased margin-bottom for spacing */
+        }
+
+        p {
+            margin-bottom: 30px; /* Increased margin-bottom for spacing */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px; /* Added margin-top for spacing */
+        }
+
+        .button {
+            padding: 20px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+            color: #fff;
+            background-color: #007bff; /* Primary blue background color for buttons */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+        }
+
+            .button:hover {
+                background-color: #0056b3; /* Darker blue on hover */
+            }
+
+            .button i {
+                margin-right: 10px;
+            }
+
+        .logout-button {
+            padding: 7px 20px; /* Adjusted padding */
+            font-size: 14px; /* Adjusted font size */
+            background-color: #dc3545; /* Red background color for logout button */
+            border-radius: 5px; /* Rounded corners */
+            border: none; /* Removed border */
+            color: #fff; /* White text color */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s ease; /* Smooth transition */
+        }
+
+            .logout-button:hover {
+                background-color: #c82333; /* Darker red on hover */
+            }
+
+        .logout-container {
+            width: 100%; /* Set width to 100% */
+            text-align: center; /* Center align text */
+            margin-top: 45px; /* Adjusted margin-top */
+        }
+
+            .logout-container button {
+                margin: 0 auto; /* Center align button */
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content">
+            <h1>Welcome To Your Dashboard</h1>
+            <br>
+            <div class="button-container">
+                <div>
+                    <button class="button" onclick="redirectToDeleteRequestForm()"><i class="fas fa-user-edit"></i> Booking Request</button>
+                </div>
+                <div>
+                    <button class="button" onclick="redirectToBookingForm()"><i class="fas fa-user-edit"></i> Make a Booking</button>
+                </div>
+            </div>
+            <div class="logout-container">
+                <form method="post" action="@Url.Action("Index", "Home")">
+                    <button type="submit" class="logout-button"><i class="fas fa-sign-out-alt"></i> Log Out</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToDeleteRequestForm() {
+            // Replace the URL with the appropriate route for the DeleteRequestForm action
+            window.location.href = '@Url.Action("DeleteRequestForm", "Booking")';
+        }
+
+        function redirectToBookingForm() {
+            // Replace the URL with the appropriate route for the BookingForm action
+            window.location.href = '@Url.Action("BookingForm", "Booking")';
+        }
+    </script>
+</body>
+</html>

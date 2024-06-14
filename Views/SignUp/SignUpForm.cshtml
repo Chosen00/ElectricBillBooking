@@ -1,0 +1,109 @@
+﻿@model ElectricBillBooking.Models.SignUpModel
+
+@{
+    ViewData["Title"] = "Sign Up";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container form-container">
+    <h2 class="text-center">Sign Up</h2>
+    <hr>
+    <form method="post" asp-action="SignUpForm">
+        <!-- Validation Summary -->
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <!-- Credential -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="UserName" value="@Model.UserName" placeholder="Username" required />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-6">
+                <input type="password" class="form-control" name="Password" value="@Model.Password" placeholder="Password" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+
+        <h4 class="text-center">Personal Information</h4>
+        <hr>
+        <!-- FullName -->
+        <div class="form-group row">
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="LastName" value="@Model.LastName" placeholder="Last Name" required />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="FirstName" value="@Model.FirstName" placeholder="First Name" required />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="MiddleName" value="@Model.MiddleName" placeholder="Middle Name" required />
+                <span asp-validation-for="MiddleName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="SuffixName" value="@Model.SuffixName" placeholder="Suffix Name" required />
+                <span asp-validation-for="SuffixName" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <!-- BirthDate & Gender -->
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input type="date" class="form-control" name="Birthdate" value="@Model.Birthdate" placeholder="Birth Date" required />
+                <span asp-validation-for="Birthdate" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-6">
+                <select class="form-control" name="Gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="NA">N/A</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <!-- CellphoneNumber -->
+        <div class="form-group row">
+            <div class="col-md-15">
+                <input type="tel" class="form-control" name="CellphoneNumber" pattern="[0-9]*" minlength="11" maxlength="11" value="@Model.CellphoneNumber" placeholder="Cellphone Number" required />
+                <span asp-validation-for="CellphoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <!-- Address -->
+        <div class="form-group col">
+            <div class="col-md-15">
+                <input type="text" class="form-control" name="StreetAddress" value="@Model.StreetAddress" placeholder="Street" required />
+                <span asp-validation-for="StreetAddress" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-15">
+                <input type="text" class="form-control" name="City" value="@Model.City" placeholder="City" required />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="col-md-15">
+                <input type="text" class="form-control" name="StateProvince" value="@Model.StateProvince" placeholder="Province" required />
+                <span asp-validation-for="StateProvince" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <!-- Submit Button -->
+        <div class="form-group row">
+            <div class="col-md-1">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </div>
+            <div class="col-md-1 text-right">
+                <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
+<br />
+<br />
+<br />

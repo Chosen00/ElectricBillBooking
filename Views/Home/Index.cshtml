@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        hr.my-4 {
+            margin: 1.5rem 0;
+            border: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1 class="display-4 mb-4">Welcome to Electric Bill Booking</h1>
+                <p class="lead">Instant booking, no lines, just click and confirm!</p>
+                <hr class="my-4">
+                <p>Instant booking, no hassle, just click and confirm. Whether you're at home, renting, or managing a business, our platform gives you the power to effortlessly schedule your appointment.</p>
+                <p>Click here for more information.</p>
+                <a class="btn btn-primary btn-lg" href="/Home/About" role="button">Learn More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

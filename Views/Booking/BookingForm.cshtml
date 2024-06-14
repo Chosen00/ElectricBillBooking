@@ -1,0 +1,73 @@
+﻿@model ElectricBillBooking.Models.BookingModel
+
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Electric Bill Booking</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData.ContainsKey("ErrorMessage"))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+                    <form method="post" asp-action="BookingForm">
+                        <!-- Add input field for ClientID, you may hide it if it's automatically generated -->
+                        <input type="hidden" asp-for="ClientID" value="@Model.ClientID">
+                        <div>
+                            <!--Email-->
+                            <div class="mb-3">
+                                <label for="Email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter your Email" value="@Model.Email" required style="width: 100%;">
+                            </div>
+                            <!--Fullname-->
+                            <div class="mb-3">
+                                <label for="LastName" class="form-label">Last Name:</label>
+                                <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Enter your Last Name" value="@Model.LastName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="FirstName" class="form-label">First Name:</label>
+                                <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="Enter your First Name" value="@Model.FirstName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="MiddleName" class="form-label">Middle Name:</label>
+                                <input type="text" class="form-control" id="MiddleName" name="MiddleName" placeholder="Enter your Middle Name" value="@Model.MiddleName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="SuffixName" class="form-label">Suffix Name:</label>
+                                <input type="text" class="form-control" id="SuffixName" name="SuffixName" placeholder="Enter your Suffix Name" value="@Model.SuffixName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="BookingDateTime" class="form-label">Booking Date and Time:</label>
+                                <!-- Set default value to today's date and time -->
+                                    @{
+                                        string defaultDateTime = DateTime.Now.ToString("yyyy-MM-ddTHH:mm");
+                                    }
+                                <input type="datetime-local" class="form-control" id="BookingDateTime" name="BookingDateTime" value="@defaultDateTime" required style="width: 100%;">
+                            </div>
+                            <br />
+                            <!--Submit-->
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                                <div class="col-md-1 text-right">
+                                    <a href="@Url.Action("DashboardForm", "SignIn")" class="btn btn-primary">Cancel</a>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />

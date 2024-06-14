@@ -1,0 +1,83 @@
+﻿@model List<ElectricBillBooking.Models.BookingModel>
+
+@{
+    ViewData["Title"] = "Booking Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Include Font Awesome CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
+<div class="container">
+    <h2 class="text-center mb-4">Booking Dashboard</h2>
+
+    <div class="table-responsive">
+        @if (Model == null || !Model.Any())
+        {
+            <p>No bookings found.</p>
+        }
+        else
+        {
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Client ID</th>
+                        <th>Email</th>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Suffix Name</th>
+                        <th>Booking Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        <tr>
+                            <td>@booking.ClientID</td>
+                            <td>@booking.Email</td>
+                            <td>@booking.LastName</td>
+                            <td>@booking.FirstName</td>
+                            <td>@booking.MiddleName</td>
+                            <td>@booking.SuffixName</td>
+                            <td>@booking.BookDate.ToString("yyyy-MM-dd HH:mm")</td>
+                            <td>
+                                <form method="post" action="@Url.Action("DeleteRequestForm", "Booking")">
+                                    <input type="hidden" name="LastName" value="@booking.LastName" />
+                                    <input type="hidden" name="FirstName" value="@booking.FirstName" />
+                                    <input type="hidden" name="MiddleName" value="@booking.MiddleName" />
+                                    <input type="hidden" name="SuffixName" value="@booking.SuffixName" />
+                                    <!-- Trash icon button for delete -->
+                                    <button type="submit" class="btn btn-danger btn-sm" style="width: 70px;">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
+                                <form method="post" action="@Url.Action("UpdateBooktableForm", "Booking")">
+                                    <input type="hidden" name="ClientID" value="@booking.ClientID" />
+                                    <input type="hidden" name="Email" value="@booking.Email" />
+                                    <input type="hidden" name="LastName" value="@booking.LastName" />
+                                    <input type="hidden" name="FirstName" value="@booking.FirstName" />
+                                    <input type="hidden" name="MiddleName" value="@booking.MiddleName" />
+                                    <input type="hidden" name="SuffixName" value="@booking.SuffixName" />
+                                    <input type="hidden" name="BookDate" value="@booking.BookDate" />
+                                    <!-- Edit icon button for update -->
+                                    <button type="submit" class="btn btn-primary btn-sm" style="width: 70px;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                </form>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        <div class="col-md-3 text-right">
+            <a href="@Url.Action("DashboardForm", "SignIn")" class="btn btn-primary">Back</a>
+        </div>
+        <br />
+        <br />
+        <br />
+    </div>
+</div>

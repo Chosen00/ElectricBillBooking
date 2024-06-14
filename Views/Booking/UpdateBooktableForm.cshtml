@@ -1,0 +1,70 @@
+﻿@model ElectricBillBooking.Models.BookingModel
+
+@{
+    ViewData["Title"] = "Update Booktable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Booking Update</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData.ContainsKey("ErrorMessage"))
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @TempData["ErrorMessage"]
+                        </div>
+                    }
+                    <form method="post" asp-action="UpdateBooktableForm">
+                        <!-- Add input field for ClientID, you may hide it if it's automatically generated -->
+                        <input type="number" class="form-control" id="ClientID" name="ClientID" placeholder="Enter your Email" value="@Model.ClientID" required style="width: 100%;">
+                        <div>
+                            <!--Email-->
+                            <div class="mb-3">
+                                <label for="Email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter your Email" value="@Model.Email" required style="width: 100%;">
+                            </div>
+                            <!--Fullname-->
+                            <div class="mb-3">
+                                <label for="LastName" class="form-label">Last Name:</label>
+                                <input type="text" class="form-control" id="LastName" name="LastName" placeholder="Enter your Last Name" value="@Model.LastName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="FirstName" class="form-label">First Name:</label>
+                                <input type="text" class="form-control" id="FirstName" name="FirstName" placeholder="Enter your First Name" value="@Model.FirstName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="MiddleName" class="form-label">Middle Name:</label>
+                                <input type="text" class="form-control" id="MiddleName" name="MiddleName" placeholder="Enter your Middle Name" value="@Model.MiddleName" required style="width: 100%;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="SuffixName" class="form-label">Suffix Name:</label>
+                                <input type="text" class="form-control" id="SuffixName" name="SuffixName" placeholder="Enter your Suffix Name" value="@Model.SuffixName" required style="width: 100%;">
+                            </div>
+                            <!--Date Time-->
+                            <div class="mb-3">
+                                <label for="BookingDateTime" class="form-label">Booking Date and Time:</label>
+                                <input type="datetime-local" class="form-control" id="BookingDateTime" name="BookingDateTime" value="@Model.BookDate.ToString("yyyy-MM-ddTHH:mm")" required style="width: 100%;">
+                            </div>
+                            <br />
+                            <!--Submit-->
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                                </div>
+                                <div class="col-md-1 text-right">
+                                    <a href="@Url.Action("DeleteRequestForm", "booking")" class="btn btn-primary">Back</a>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />

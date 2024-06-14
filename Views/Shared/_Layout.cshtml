@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ElectricBillBooking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ElectricBillBooking.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        /* Custom styles for header */
+        header {
+            background-color: #87CEFA; /* Set light blue background color */
+            padding: 10px 0; /* Add padding */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff; /* Set text color */
+            font-size: 1.1rem; /* Adjust font size */
+            transition: color 0.3s; /* Add transition for smooth color change */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #000; /* Change text color to black on hover */
+        }
+
+        /* Focus styles for buttons and form elements */
+        .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+            box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+        }
+
+        /* Reset margins and paddings for body and container */
+        body, .container-fluid {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Footer small text */
+        .small-text {
+            font-size: 12px;
+        }
+
+        /* Sign up and Sign in buttons */
+        .btn-signup,
+        .btn-signin {
+            font-size: 8px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ElectricBillBooking</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                        </li>
+                    </ul> <!-- Close the navigation items ul here -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Start a new ul for the buttons and align them to the right -->
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success btn-sm nav-link custom-btn" href="/SignUp/SignUpForm" role="button" style="font-size: 12px; margin-right: 10px;">Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-primary btn-sm nav-link custom-btn" href="/SignIn/SignInForm" role="button" style="font-size: 12px; margin-right: 10px;">Sign In</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" @(ViewData["IsHiddenFooter"] as bool? == true ? "style='display: none;'" : "")>
+        <div class="container small-text">
+            &copy; 2024 - ElectricBillBooking - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
